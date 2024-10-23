@@ -7,6 +7,6 @@
 </head>
 <body>
     <div id="root"></div>
-    <script src="{{ secure_asset('frontend/assets/index-DdRnDNqV.js') }}"></script>
+    <script src="{{ secure_asset('frontend/assets/index-b1dHBlVD.js') }}"></script>
 </body>
 </html>
