@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ScategorieController;
 
+use ErlandMuchasaj\LaravelGzip\Middleware\GzipEncodeResponse;
+
+
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
@@ -15,10 +19,11 @@ Route::get("/categories/{id}",[CategorieController::class,'show']);
 Route::delete("/categories/{id}",[CategorieController::class,'destroy']);
 Route::put("/categories/{id}",[CategorieController::class,'update']);*/
 
+Route::middleware([GzipEncodeResponse::class])->group(function () {
 Route::middleware('api')->group(function () {
     Route::resource('categories', CategorieController::class);
     });
-    
+});   
     Route::middleware('api')->group(function () {
         Route::resource('scategories', ScategorieController::class);
         });
